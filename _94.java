@@ -1,35 +1,35 @@
 import java.util.*;
 
-class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+class TreeNode{
+    int val;
+    TreeNode left;
+    TreeNode right;
 
-        TreeNode() {}
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
+    TreeNode(){}
+    TreeNode(int v){
+        this.val = v;
     }
+    TreeNode(int v, TreeNode l, TreeNode r){
+        this.val = v;
+        this.left = l;
+        this.right = r;
+    }
+}
 
-// Solution class with inorder traversal
-class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
+class Solution{
+    public List<Integer> inorderTraversal(TreeNode root){
         List<Integer> list = new ArrayList<>();
+
         inorder(root, list);
+
         return list;
     }
 
-    public static void inorder(TreeNode root, List<Integer> list) {
-        if (root == null) return;
-        inorder(root.left, list);
-        list.add(root.val);
-        inorder(root.right, list);
+    public void inorder(TreeNode r, List<Integer> l){
+        if(r==null) return ;
+
+        inorder(r.left, l);
+        l.add(r.val);
+        inorder(r.right, l);   
     }
 }
